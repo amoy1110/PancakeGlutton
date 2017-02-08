@@ -12,7 +12,7 @@ int main()
 {
 	Person personList[10];
 
-	for(int i=0; i<10; i++)
+	for(auto i=0; i<10; i++)
 	{
 		int pancakesEaten;
 		personList[i].SetID(i + 1);
@@ -23,12 +23,14 @@ int main()
 		personList[i].SetPancakes(pancakesEaten);
 	}
 
-	for(int i=0; i<10; i++)
+	for(auto i=0; i<10; i++)
 	{
 		cout << "Person " << personList[i].GetID() << " ate " << personList[i].GetPancakes() << " pancakes." << endl;
 	}
 
-	cout << "Most eaten pancakes are: " << GetMostEatenPancakes(personList, 10);
+	cout << "Most eaten pancakes are: " << GetMostEatenPancakes(personList, 10) << " by person: " << GetPersonWithMostEaten(personList, 10);
+	cout << endl;
+	cout << "Least eaten pancakes are: " << GetLeastEatenPancakes(personList, 10);
 
 	int test;
 	cin >> test;
