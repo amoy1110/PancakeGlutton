@@ -4,36 +4,31 @@
 #include "stdafx.h"
 #include "Person.h"
 #include <iostream>
+#include "Utility.h"
 
 using namespace std;
 
 int main()
 {
 	Person personList[10];
-	int highestPancakesEaten = 0, personWhoAteTheMost = 0;
 
 	for(int i=0; i<10; i++)
 	{
 		int pancakesEaten;
-	
-		cout << "Enter how many pancakes person #: " << i+1 << " ate.";
+		personList[i].SetID(i + 1);
+
+		cout << "Enter how many pancakes person #: " << personList[i].GetID() << " ate.";
 		cin >> pancakesEaten;
 
 		personList[i].SetPancakes(pancakesEaten);
-		
-		if(pancakesEaten > highestPancakesEaten)
-		{
-			highestPancakesEaten = pancakesEaten;
-			personWhoAteTheMost = i+1;
-		}
 	}
 
 	for(int i=0; i<10; i++)
 	{
-		cout << "Person " << i+1 << " ate " << personList[i].GetPancakes() << " pancakes." << endl;
+		cout << "Person " << personList[i].GetID() << " ate " << personList[i].GetPancakes() << " pancakes." << endl;
 	}
 
-	cout << "Most pancakes eaten are " << highestPancakesEaten << " by person #: " << personWhoAteTheMost << endl;
+	cout << "Most eaten pancakes are: " << GetMostEatenPancakes(personList, 10);
 
 	int test;
 	cin >> test;
